@@ -4,7 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>mesto</title>
-  <link href="./style.css" rel="stylesheet">
+  <!-- <link href="./style.css" rel="stylesheet"> -->
+  <link href="./pages/index.css" rel="stylesheet">
 </head>
 <body class="body">
     <div class="page">
@@ -16,8 +17,8 @@
            <div class="profile__main">
             <img class="profile__avatar" src="./images/Avatar (1).jpg" alt="жак ив кусто">
             <div class="profile__info">
-                <h1 class="profile__title">Жак-Ив Кусто<button class="profile__edit-button"></button> </h1>
-                <p class="profile__subtitle">Исследователь океана</p>
+                <h1 class="profile__name"><span class= "profile__name-text">Жак-Ив Кусто</span><button class="profile__edit-button"></button> </h1>
+                <p class="profile__job">Исследователь океана</p>
             </div>
            </div> 
             <button class="profile__add-button"></button>
@@ -68,7 +69,7 @@
             </section>
         </main>
         <footer class="footer">
-            <p>&copy;2021 Mesto Russia</p>
+            <p class="footer__paragraph">&copy;2021 Mesto Russia</p>
         </footer>
     </div>
     <section class="popup ">
@@ -76,11 +77,12 @@
             <button class="popup__close"></button>
             <h2 class="popup__title">Редактировать профиль</h2>
             <form class="popup__form">
-                <input type="text" class="popup__form-input" value="Жак-Ив Кусто">
-                <input type="text" class="popup__form-input" value="Исследователь океана">
+                <input type="text" class="popup__form-input popup__form-input_type_name" value="Жак-Ив Кусто">
+                <input type="text" class="popup__form-input popup__form-input_type_job" value="Исследователь океана">
                 <button type="submit" class="popup__button">Сохранить</button>
             </form>
         </div>
     </section>
+    <script src="./scripts/main.js"></script>
 </body>
 </html>
