@@ -16,7 +16,7 @@
 }
 
 .element__like:active {
-    background-image: url(../../../images/Union.png);
+    background-image: url(../../../images/like-active.svg);
     color: black;
     cursor: pointer;
 }

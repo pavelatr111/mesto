@@ -13,9 +13,7 @@
 
 @media screen and (max-width: 768px) {
     .element__text {
-        max-width: 300px;
-        font-size: 35px;
-        line-height: 110%;
+        max-width: 200px;
     }
 }
 

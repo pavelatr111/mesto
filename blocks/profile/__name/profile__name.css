@@ -6,16 +6,23 @@
     color: #FFFFFF;
     margin: 0;
     margin-bottom: 16px;
+    max-width: 294px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 250px;
 }
 
 @media screen and (max-width: 768px) {
     .profile__name {
-        font-size: 35px;
+        max-width: 150px;
+        font-size: 30px;
     }
 }
 
 @media screen and (max-width: 320px) {
     .profile__name {
+        max-width: 282px;
         font-size: 27px;
         line-height: 122%;
         text-align: center;
