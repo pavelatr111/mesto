@@ -10,8 +10,8 @@ closePopup.addEventListener('click', closePopupHandler)
 
 function openPopupHandler() {
     popup.classList. add('popup_visible');
-    nameInput.value = profileName.textContent
-    jobInput.value = profileJob.textContent
+    nameInput.value = profileName.textContent;
+    jobInput.value = profileJob.textContent;
 }
 function closePopupHandler() {
     popup.classList.remove('popup_visible');
@@ -30,7 +30,7 @@ function formSubmitHandler (evt) {
     profileName.textContent = nameValue;
     profileJob.textContent = jobValue;
 
-    toggleClass();
+    closePopupHandler();
 }
 
 popupForm.addEventListener('submit', formSubmitHandler);
