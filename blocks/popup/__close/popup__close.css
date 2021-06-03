@@ -11,10 +11,11 @@
     top: -40px;
     right: -40px;
     cursor: pointer;
+    padding: 0;
 }
 
 .popup__close:hover {
-    opacity: 0.5;
+    opacity: 0.6;
 }
 
 @media screen and (max-width: 768px) {
@@ -25,6 +26,7 @@
 
 @media screen and (max-width: 320px) {
     .popup__close {
+        padding: 0;
         right: 0;
         top: -42px;
         width: 26px;

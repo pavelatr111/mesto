@@ -1,5 +1,18 @@
 .element__img {
     width: 100%;
+    height: 78%;
     border-radius: 10px 10px 0 0;
     border: none;
+    object-fit: cover;
+}
+@media screen and (max-width: 768px) {
+    .element__img {
+        height: 85%;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .element__img {
+        height: 78%;
+    }
 }

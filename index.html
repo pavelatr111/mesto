@@ -20,19 +20,19 @@
                     <div class="profile__info">
                         <div class="profile__container">
                             <h1 class="profile__name">Жак-Ив Кусто </h1>
-                            <button class="profile__edit-button" type="submit"></button>
+                            <button class="profile__edit-button" type="button"></button>
                         </div>
                         <p class="profile__job">Исследователь океана</p>
                     </div>
                 </div>
-                <button class="profile__add-button" type="submit"></button>
+                <button class="profile__add-button" type="button"></button>
             </section>
             <section class="elements">
                 <div class="element">
                     <img class="element__img" src="./images/karachaevsk.jpg" alt="Карачаевск">
                     <div class="element__group">
                         <h3 class="element__text">Карачаевск</h3>
-                        <button class="element__like"></button>
+                        <button class="element__like" type="button"></button>
                     </div>
                 </div>
                 <div class="element">
@@ -78,11 +78,11 @@
     </div>
     <div class="popup ">
         <div class="popup__container">
-            <button class="popup__close"></button>
+            <button class="popup__close" type="button"></button>
             <h2 class="popup__title">Редактировать профиль</h2>
             <form class="popup__form">
-                <input type="text" class="popup__form-input popup__form-input_type_name" value="" required placeholder="введите имя">
-                <input type="text" class="popup__form-input popup__form-input_type_job" value="" required placeholder="введите проффесию">
+                <input type="text" class="popup__form-input popup__form-input_type_name" name="имя" value="" required placeholder="введите имя">
+                <input type="text" class="popup__form-input popup__form-input_type_job" name="профессия" value="" required placeholder="введите проффесию">
                 <button type="submit" class="popup__button">Сохранить</button>
             </form>
         </div>
