@@ -1,5 +1,6 @@
 .popup__close {
     background-image: url(../../../images/Close\ Icon.svg);
+    background-size: 40px 40px;
     width: 40px;
     height: 40px;
     color: white;
@@ -27,13 +28,12 @@
 
 @media screen and (max-width: 320px) {
     .popup__close {
-
         padding: 0;
-        right: 0;
+        right: 7px;
         top: -42px;
-        width: 26px;
-        height: 26px;
+        background-size: 20px 20px;
+        width: 20px;
+        height: 20px;
         /* я проверил на perfectpixel и все ароде совпадает.*/
-        background-size: 26px 26px;
     }
 }
