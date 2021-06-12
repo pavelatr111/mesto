@@ -4,11 +4,7 @@
     border-radius: 10px 10px 0 0;
     border: none;
     object-fit: fill;
-}
-@media screen and (max-width: 768px) {
-    .element__img {
-        height: 85%;
-    }
+    margin: auto;
 }
 
 @media screen and (max-width: 320px) {
