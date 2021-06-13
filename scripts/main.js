@@ -131,8 +131,8 @@ function closePlacePopupHandler() {
 function formPlaceSubmitHandler (evt) {
     evt.preventDefault(); 
 
-    let nameValue = placeNameInput.value;
-    let linkValue = placeLinkInput.value;
+    const nameValue = placeNameInput.value;
+    const linkValue = placeLinkInput.value;
    
     const placeData = { name: nameValue, link: linkValue };
     renderPlaceCard(placeData);
