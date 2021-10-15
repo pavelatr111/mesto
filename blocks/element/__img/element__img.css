@@ -1,10 +1,10 @@
 .element__img {
     width: 282px;
-    height: 78%;
+    height: 282px;
     border-radius: 10px 10px 0 0;
-    border: none;
-    /* object-fit: fill; */
-    margin: auto;
+    /* border: none; */
+    object-fit: fill;
+    /* margin: auto; */
 }
 
 @media screen and (max-width: 320px) {
