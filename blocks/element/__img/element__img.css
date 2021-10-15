@@ -1,9 +1,9 @@
 .element__img {
-    width: 100%;
+    width: 282px;
     height: 78%;
     border-radius: 10px 10px 0 0;
     border: none;
-    object-fit: fill;
+    /* object-fit: fill; */
     margin: auto;
 }
 

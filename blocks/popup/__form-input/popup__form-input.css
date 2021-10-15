@@ -1,6 +1,5 @@
 .popup__form-input {
     max-width: 358px;
-    width: 100%;
     padding: 0;
     padding-bottom: 11px;
     margin: 0;
@@ -11,9 +10,16 @@
     font-family: 'Inter', 'Arial', sans-serif;
     font-size: 14px;
     line-height: 17px;
+    position: relative;
 }
 .popup__form-input:last-of-type {
     margin-bottom: 0;
+}
+
+@media screen and (max-width: 440px) {
+    .popup__form-input {
+        max-width: 320px;
+    }
 }
 
 @media screen and (max-width: 320px) {
