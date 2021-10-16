@@ -237,6 +237,7 @@ const enableValidation = (config) => {
       buttonElement.setAttribute('disabled', true)
     } else {
       buttonElement.classList.remove(config.inactiveButtonClass);
+      buttonElement.removeAttribute('disabled', true)
     }
   }
 
