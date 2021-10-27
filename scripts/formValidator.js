@@ -10,7 +10,7 @@ class FormValidator {
     this._form.addEventListener('submit', (evt) => {
       evt.preventDefault();
     })
-    this._enableValidationInput(this._form)
+    this._enableValidationInput()
   }
 
   //показать ошибку
@@ -21,7 +21,7 @@ class FormValidator {
     errorElement.classList.add(this._config.errorClass)
   }
   //скрыть ошибку
-  _hideInputError (input, errorMessage) {
+  _hideInputError (input) {
     const errorElement = this._form.querySelector(`.${input.id}-error`);
     input.classList.remove(this._config.inputErrorClass);
     errorElement.textContent = '';

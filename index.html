@@ -40,7 +40,7 @@
         <div class="popup__container">
             <button class="popup__close" type="button"></button>
             <h2 class="popup__title">Редактировать профиль</h2>
-            <form class="popup__form" name="profile-data" novalidate>
+            <form class="popup__form" name="profile" novalidate>
                 <label class = "popup__lable-input">
                     <input type="text" class="popup__form-input popup__form-input_type_name" name="name" id="name-profile" value="" minlength =  "2" maxlength = "40" required placeholder="введите имя">
                     <span  class="error name-profile-error"></span>
@@ -57,7 +57,7 @@
         <div class="popup__container">
             <button class="popup__close" type="button"></button>
             <h2 class="popup__title">Новое место</h2>
-            <form class="popup__form" name="place-data" novalidate>
+            <form class="popup__form" name="place" novalidate>
                 <label class = "popup__lable-input">
                     <input type="text" class="popup__form-input popup__card-input popup__card-input_type_name" id="name-place"  name="name-place" value="" minlength =  "2" maxlength = "40" required placeholder="Название">
                     <span class="error name-place-error"></span>
@@ -73,7 +73,7 @@
     <div class="popup popup-image">
         <div class="popup-image__container">
             <img class="popup-image__place" alt="">
-            <button class="popup-image__close" type="button"></button>
+            <button class="popup__close" type="button"></button>
             <h2 class="popup-image__title"></h2>
         </div>
     </div>
@@ -87,7 +87,7 @@
             </div>
         </div>
     </template>
-    <script src="./scripts/form-validator.js"></script>
+    <script src="./scripts/formValidator.js"></script>
     <script src="./scripts/card.js"></script>
     <script src="./scripts/main.js"></script>
 </body>
