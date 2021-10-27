@@ -4,6 +4,7 @@ class FormValidator {
       this._config = config;
       this._form = form;
       this._inputs = Array.from(this._form.querySelectorAll(this._config.inputSelector));
+      this._buttonElement = this._form.querySelector(this._config.submitButtonSelector);
   }
 
   enableValidation() {
@@ -35,14 +36,23 @@ class FormValidator {
     });
   }
 
+  resetValidation() {
+    this._toggleButtonState(); 
+
+    this._inputs.forEach((input) => {
+      this._hideInputError(input) 
+    });
+
+  }
+
   //блокировка кнопки
-  _toggleButtonState (buttonElement) {
+  _toggleButtonState () {
     if (this._hasInvalidInput()) {
-      buttonElement.classList.add(this._config.inactiveButtonClass);
-      buttonElement.setAttribute('disabled', true)
+      this._buttonElement.classList.add(this._config.inactiveButtonClass);
+      this._buttonElement.setAttribute('disabled', true)
     } else {
-      buttonElement.classList.remove(this._config.inactiveButtonClass);
-      buttonElement.removeAttribute('disabled', true)
+      this._buttonElement.classList.remove(this._config.inactiveButtonClass);
+      this._buttonElement.removeAttribute('disabled', true)
     }
   }
 
@@ -59,12 +69,11 @@ class FormValidator {
 
   //находим инпуты и вешаем слушатели input, submit
   _enableValidationInput() {
-    const buttonElement = this._form.querySelector(this._config.submitButtonSelector);
-    this._toggleButtonState(buttonElement);
+    this._toggleButtonState();
     this._inputs.forEach((input) => {
       input.addEventListener('input', () => {
         this._checkInputValidity(input);
-        this._toggleButtonState(buttonElement);
+        this._toggleButtonState();
       })
     })
   }

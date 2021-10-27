@@ -40,6 +40,7 @@ editProfile.addEventListener('click', openProfilePopupHandler)
 closeProfile.addEventListener('click', closeProfilePopupHandler)
 
 function openProfilePopupHandler() {
+  formValidator.resetValidation();
   openPopup(popupProfile);
   profileNameInput.value = profileName.textContent;
   profileJobInput.value = profileJob.textContent;
@@ -94,19 +95,6 @@ function addCard(container, cardElement) {
   container.prepend(cardElement);
 }
 
-// //удаление карточки
-// function handleDeleteCard(evt) {
-//   const deleteElement = evt.target;
-//   deleteElement.closest('.element').remove();
-// }
-
-// //добавление лайка 
-// function likeActive(evt) {
-//   const likeElement = evt.target;
-//   likeElement.classList.toggle('element__like_active');
-// }
-
-
 const addPlaceButton = document.querySelector('.profile__add-button');
 const popupPlace = document.querySelector('.popup_place');
 const closePlace = popupPlace.querySelector('.popup__close');
@@ -120,9 +108,10 @@ addPlaceButton.addEventListener('click', openPlacePopupHandler)
 closePlace.addEventListener('click', closePlacePopupHandler)
 
 function openPlacePopupHandler() {
+  formValidatorPlace.resetValidation();
   openPopup(popupPlace)
-  placeNameInput.value = '';
-  placeLinkInput.value = '';
+  // placeNameInput.value = '';
+  // placeLinkInput.value = '';
 }
 function closePlacePopupHandler() {
   closePopup(popupPlace)
@@ -140,135 +129,13 @@ function formPlaceSubmitHandler(evt) {
   addCard(placeCards, renderPlaceCard(placeData))
 
   closePlacePopupHandler();
+
+  placeNameInput.value = '';
+  placeLinkInput.value = '';
 }
 
 popupPlaceForm.addEventListener('submit', formPlaceSubmitHandler);
 
-// //показать ошибку
-// const showInputError = (formElement, input, errorMessage) => {
-//   const errorElement = formElement.querySelector(`.${input.id}-error`);
-//   input.classList.add('popup__form-input_error');
-//   errorElement.textContent = errorMessage;
-//   errorElement.classList.add('error')
-// };
-// //скрыть ошибку
-// const hideInputError = (formElement, input, errorMessage) => {
-//   const errorElement = formElement.querySelector(`.${input.id}-error`);
-//   input.classList.remove('popup__form-input_error');
-//   errorElement.textContent = '';
-//   errorElement.classList.remove('error');
-// };
-
-// //искать в инпутах не валидный инпут
-// const hasInvalidInput = (inputs) => {
-//   return inputs.some((input) => {
-//     return !input.validity.valid;
-//   });
-// }
-
-// //блокировка кнопки
-// const toggleButtonState = (inputs, buttonElement) => {
-//   if (hasInvalidInput(inputs)) {
-//     buttonElement.classList.add('popup__button_inactive');
-//   } else {
-//     buttonElement.classList.remove('popup__button_inactive');
-//   }
-// }
-
-// //проверка инпутов
-// const checkInputValidity = (formElement, input) => {
-//   if (!input.validity.valid) {
-//     showInputError(formElement, input, input.validationMessage);
-//   } else {
-//     hideInputError(formElement, input);
-//   }
-// };
-
-
-// //находим инпуты и вешаем слушатели input, submit
-// const enableValidationInput = (formElement, object) => {
-//   const inputs = Array.from(formElement.querySelectorAll(object.inputSelector));
-//   const buttonElement = formElement.querySelector(object.submitButtonSelector);
-//   toggleButtonState(inputs, buttonElement);
-//   inputs.forEach((input) => {
-//     input.addEventListener('input', () => {
-//       checkInputValidity(formElement, input);
-//       toggleButtonState(inputs, buttonElement);
-//     })
-//   })
-// }
-
-
-//находим все формы
-
-// const enableValidation = (config) => {
-
-//   //показать ошибку
-//   const showInputError = (formElement, input, errorMessage) => {
-//     const errorElement = formElement.querySelector(`.${input.id}-error`);
-//     input.classList.add(config.inputErrorClass);
-//     errorElement.textContent = errorMessage;
-//     errorElement.classList.add(config.errorClass)
-//   };
-//   //скрыть ошибку
-//   const hideInputError = (formElement, input, errorMessage) => {
-//     const errorElement = formElement.querySelector(`.${input.id}-error`);
-//     input.classList.remove(config.inputErrorClass);
-//     errorElement.textContent = '';
-//     errorElement.classList.remove(config.errorClass);
-//   };
-
-//   //искать в инпутах не валидный инпут
-//   const hasInvalidInput = (inputs) => {
-//     return inputs.some((input) => {
-//       return !input.validity.valid;
-//     });
-//   }
-
-//   //блокировка кнопки
-//   const toggleButtonState = (inputs, buttonElement) => {
-//     if (hasInvalidInput(inputs)) {
-//       buttonElement.classList.add(config.inactiveButtonClass);
-//       buttonElement.setAttribute('disabled', true)
-//     } else {
-//       buttonElement.classList.remove(config.inactiveButtonClass);
-//       buttonElement.removeAttribute('disabled', true)
-//     }
-//   }
-
-//   //проверка инпутов
-//   const checkInputValidity = (formElement, input) => {
-//     if (!input.validity.valid) {
-//       showInputError(formElement, input, input.validationMessage);
-//     } else {
-//       hideInputError(formElement, input);
-//     }
-//   };
-
-
-//   //находим инпуты и вешаем слушатели input, submit
-//   const enableValidationInput = (formElement) => {
-//     const inputs = Array.from(formElement.querySelectorAll(config.inputSelector));
-//     const buttonElement = formElement.querySelector(config.submitButtonSelector);
-//     toggleButtonState(inputs, buttonElement);
-//     inputs.forEach((input) => {
-//       input.addEventListener('input', () => {
-//         checkInputValidity(formElement, input);
-//         toggleButtonState(inputs, buttonElement);
-//       })
-//     })
-//   }
-
-
-//   const forms = Array.from(document.querySelectorAll(config.formSelector))
-//   forms.forEach((formElement) => {
-//     formElement.addEventListener('submit', (evt) => {
-//       evt.preventDefault();
-//     })
-//     enableValidationInput(formElement)
-//   });
-
-// }
 const config = {
   inputSelector: '.popup__form-input',
   submitButtonSelector: '.popup__button',
@@ -280,27 +147,19 @@ const forms = Array.from(document.querySelectorAll('.popup__form'))
 const formProfile = document.forms.profile;
 const formPlace = document.forms.place;
 
-    
-  const formValidator = new FormValidator(config, formProfile);
-  const formValidatorPlace = new FormValidator(config, formPlace)
-  
-    formValidator.enableValidation()
-    formValidatorPlace.enableValidation()
-  
+
+const formValidator = new FormValidator(config, formProfile);
+const formValidatorPlace = new FormValidator(config, formPlace)
+
+formValidator.enableValidation()
+formValidatorPlace.enableValidation()
+
 
 
 const popupImage = document.querySelector('.popup-image');
 const popupImageClose = popupImage.querySelector('.popup__close');
 const popupImageText = popupImage.querySelector('.popup-image__title');
-const popupImagePlace = popupImage.querySelector('.popup-image__place');
-
-//слушатель удаления карточки , лайка и открытия попап с изображением
-// function setEventListeners(element) {
-//   element.querySelector('.element__like').addEventListener('click', likeActive);
-//   element.querySelector('.element__trash').addEventListener('click', handleDeleteCard);
-//   element.querySelector('.element__img').addEventListener('click', openPopupImage);
-
-// }
+const popupImagePlace = popupImage.querySelector('.popup-image__place')
 
 
 function openPopupImage(evt) {
