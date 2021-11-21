@@ -42,11 +42,13 @@
             <h2 class="popup__title">Редактировать профиль</h2>
             <form class="popup__form" name="profile" novalidate>
                 <label class = "popup__lable-input">
-                    <input type="text" class="popup__form-input popup__form-input_type_name" name="name" id="name-profile" value="" minlength =  "2" maxlength = "40" required placeholder="введите имя">
+                    <input type="text" class="popup__form-input popup__form-input_type_name"
+                            name="name" id="name-profile" value="" minlength =  "2" maxlength = "40" required placeholder="введите имя">
                     <span  class="error name-profile-error"></span>
                 </label>  
                 <label class = "popup__lable-input"> 
-                    <input type="text" class="popup__form-input popup__form-input_type_job" name="job" id="job-profile" value="" minlength="2" maxlength="200" required placeholder="введите проффесию">
+                    <input type="text" class="popup__form-input popup__form-input_type_job"
+                            name="job" id="job-profile" value="" minlength="2" maxlength="200" required placeholder="введите проффесию">
                     <span  class="error job-profile-error"></span> 
                 </label>   
                 <button type="submit" class="popup__button">Сохранить</button>
@@ -59,11 +61,13 @@
             <h2 class="popup__title">Новое место</h2>
             <form class="popup__form" name="place" novalidate>
                 <label class = "popup__lable-input">
-                    <input type="text" class="popup__form-input popup__card-input popup__card-input_type_name" id="name-place"  name="name-place" value="" minlength =  "2" maxlength = "40" required placeholder="Название">
+                    <input type="text" class="popup__form-input popup__card-input popup__card-input_type_name"
+                            id="name-place"  name="name" value="" minlength="2" maxlength = "40" required placeholder="Название">
                     <span class="error name-place-error"></span>
                 </label>
                 <label class = "popup__lable-input">  
-                    <input type="url" class="popup__form-input popup__card-input popup__card-input_type_link" id="link-place" name="link-place" value="" required placeholder="Ссылка на картинку">
+                    <input type="url" class="popup__form-input popup__card-input popup__card-input_type_link"
+                            id="link-place" name="link" value="" required placeholder="Ссылка на картинку">
                     <span class="error link-place-error"></span>
                 </label>
                 <button type="submit" class="popup__button">Создать</button>
@@ -87,9 +91,9 @@
             </div>
         </div>
     </template>
-    <script src="./scripts/formValidator.js"></script>
-    <script src="./scripts/card.js"></script>
-    <script src="./scripts/main.js"></script>
+    <!-- <script src="./scripts/formValidator.js"></script> -->
+    <!-- <script src="./scripts/card.js"></script> -->
+    <script src="./scripts/main.js" type="module"></script>
 </body>
 
 </html>

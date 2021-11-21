@@ -1,4 +1,4 @@
-class Card {
+export class Card {
   constructor(data, selector, openPopupImage) {
     this._openPopupImage = openPopupImage;
     this._selector = selector;
@@ -23,7 +23,9 @@ class Card {
   _setEventListeners(element) {
     element.querySelector('.element__like').addEventListener('click', this._likeActive);
     element.querySelector('.element__trash').addEventListener('click', this._handleDeleteCard);
-    element.querySelector('.element__img').addEventListener('click', this._openPopupImage);
+    element.querySelector('.element__img').addEventListener('click', () => {
+      this._openPopupImage(this._name, this._link);
+    });
 
   }
   //удаление карточки

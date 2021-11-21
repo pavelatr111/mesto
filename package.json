@@ -1,0 +1,19 @@
+{
+  "name": "mesto",
+  "version": "0.0.1",
+  "description": "## сервисом Mesto: интерактивной страницей, куда можно добавлять фотографии, удалять их и ставить лайки. ## реализована валидация полей ввода. ## реализованы функции закрытея попапов по нажатию на \"esc\" и по клику на оверлэй.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pavelatr111/mesto.git"
+  },
+  "author": "pavel pavlov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pavelatr111/mesto/issues"
+  },
+  "homepage": "https://github.com/pavelatr111/mesto#readme"
+}
