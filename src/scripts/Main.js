@@ -1,4 +1,4 @@
-
+import '../pages/index.css';
 import { initialCards, formConfig } from "./Constants.js";
 import { PopupWithForm } from "./PopupWithForm.js";
 import { PopupWithImage } from "./PopupWithImage.js";

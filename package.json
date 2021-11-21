@@ -4,7 +4,8 @@
   "description": "## сервисом Mesto: интерактивной страницей, куда можно добавлять фотографии, удалять их и ставить лайки. ## реализована валидация полей ввода. ## реализованы функции закрытея попапов по нажатию на \"esc\" и по клику на оверлэй.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "webpack --mode production",
+    "dev": "webpack serve"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,24 @@
   "bugs": {
     "url": "https://github.com/pavelatr111/mesto/issues"
   },
-  "homepage": "https://github.com/pavelatr111/mesto#readme"
+  "homepage": "https://github.com/pavelatr111/mesto#readme",
+  "devDependencies": {
+    "@babel/core": "^7.16.0",
+    "@babel/preset-env": "^7.16.4",
+    "autoprefixer": "^10.4.0",
+    "babel-loader": "^8.2.3",
+    "clean-webpack-plugin": "^4.0.0",
+    "css-loader": "^6.5.1",
+    "cssnano": "^5.0.11",
+    "html-webpack-plugin": "^5.5.0",
+    "i": "^0.3.7",
+    "mini-css-extract-plugin": "^2.4.5",
+    "postcss-loader": "^6.2.0",
+    "webpack": "^5.64.2",
+    "webpack-cli": "^4.9.1",
+    "webpack-dev-server": "^4.5.0"
+  },
+  "dependencies": {
+    "core-js": "^3.19.1"
+  }
 }
