@@ -1,10 +1,10 @@
-import './pages/index.css';
-import { initialCards, formConfig } from "./scripts/utils/constants.js";
-import { PopupWithForm } from "./scripts/PopupWithForm.js";
-import { PopupWithImage } from "./scripts/PopupWithImage.js";
-import { FormValidator } from "./scripts/FormValidator.js";
-import { Card } from "./scripts/Card.js";
-import { UserInfo } from './scripts/UserInfo';
+import "./index.css";
+import { initialCards, formConfig } from "../utils/constants.js";
+import { PopupWithForm } from "../components/PopupWithForm.js";
+import { PopupWithImage } from "../components/PopupWithImage.js";
+import { FormValidator } from "../components/FormValidator.js";
+import { Card } from "../components/Card.js";
+import { UserInfo } from '../components/UserInfo';
 
   // рендер начального набора карточек
   const cardsContainer = document.querySelector(".elements");
