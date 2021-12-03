@@ -1,9 +1,32 @@
+import { data } from "autoprefixer";
+
 export class Card {
-  constructor(data, selector, openPopupImage) {
+  /* data = {
+      createdAt: "2021-12-02T19:13:56.623Z"
+      likes: [] 
+      link: "https://photocentra.ru/images/main57/576214_main.jpg"
+      name: "Карелия зимой"
+      owner: {
+        about: "Ведущий специалист по продвижению \"на бровях\""
+        avatar: "https://images.unsplash.com/photo-1561047029-1f65a26d0afa?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
+        cohort: "cohort-30"
+        name: "Александр Лебедев"
+        _id: "a29cf682de85905c36a6f919"
+      },
+      _id: "61a91af4ed37330012afbb6d"
+    } */
+  constructor({data}, selector, openPopupImage, likeActive) {
+    console.log(data)
+    
     this._openPopupImage = openPopupImage;
+    this._likeActive = likeActive
+    
     this._selector = selector;
+    this._id = data._id;
+    this._likes = data.likes;
     this._name = data.name;
     this._link = data.link;
+    this._meId = data.currentUserId;
   }
   render() {
     const htmlElement = document
@@ -14,32 +37,63 @@ export class Card {
     htmlElement.querySelector('.element__text').innerText = this._name;
     htmlElement.querySelector('.element__img').src = this._link;
     htmlElement.querySelector('.element__img').alt = this._name;
+    htmlElement.querySelector('.element__like-number').innerText = this._likes.length;
     // 3. append to list
     this._setEventListeners(htmlElement);
+    this._htmlElement = htmlElement.firstElementChild;
 
     return htmlElement;
   }
 
   _setEventListeners(element) {
-    element.querySelector('.element__like').addEventListener('click', this._likeActive);
+    this._elementLikeButton = element.querySelector('.element__like');
+    this._elementLikeButton.addEventListener('click', () => {this._likeActive(this);});
+
     element.querySelector('.element__trash').addEventListener('click', this._handleDeleteCard);
+
     element.querySelector('.element__img').addEventListener('click', () => {
       this._openPopupImage(this._name, this._link);
     });
-
   }
   //удаление карточки
   _handleDeleteCard(evt) {
+    //попап удаления
+    // const popupDeleteCard = new Popup(".popup_delete")
+    // popupDeleteCard.setEventListeners();
+    // popupDeleteCard.open();
+
     const deleteElement = evt.target;
     deleteElement.closest('.element').remove();
   }
 
-  //добавление лайка 
-  _likeActive(evt) {
-    const likeElement = evt.target;
-    likeElement.classList.toggle('element__like_active');
+  _updateLikes() {
+    if(!this._likes.some(data => data._id === this._meId)){
+      this._elementLikeButton.classList.remove('element__like_active');
+    }else {
+      this._elementLikeButton.classList.add('element__like_active')
+    }
   }
- 
+
+  getId() {
+    return this._id;
+  }
+
+  getLikes() {
+    return this._likes;
+  }
+
+  setLikes(likes) {
+    this._likes = likes;
+    this._htmlElement.querySelector(".element__like-number").innerText =
+      this._likes.length;
+      this._updateLikes();
+  }
+   
+  //добавление лайка
+  // Active(evt) {
+  //   const likeElement = evt.target;
+  //   likeElement.classList.toggle('element__like_active');
+  // }
 
 
 }
