@@ -17,7 +17,7 @@
             <section class="profile">
                 <div class="profile__main">
                    <div class="profile__avatar-container">
-                    <img class="profile__avatar" src="<%=require('./images/image.svg')%>" alt="жак ив кусто">
+                    <img class="profile__avatar" src="" alt="жак ив кусто">
                     <button class="profile__avatar-edit" type="button" aria-label="Обновить автарку"></button>
                    </div> 
                     <div class="profile__info">
@@ -91,7 +91,7 @@
             <form class="popup__form" name="avatarEdit" novalidate>
             <label class = "popup__lable-input">  
                 <input type="url" class="popup__form-input popup__form-input_type_avatar-edit"
-                        id="link-avatar-edit" name="link" value="" required placeholder="https://somewebsite.com/someimage.jpg">
+                        id="link-avatar-edit" name="avatar" value="" required placeholder="https://somewebsite.com/someimage.jpg">
                 <span class="error link-avatar-edit-error"></span>
             </label>
             <button type="submit" class="popup__button">Сохранить</button>
@@ -102,7 +102,7 @@
         <div class="popup__container">
             <button class="popup__close" type="button"></button>
             <h2 class=" popup__title_delete">Вы уверены?</h2>
-            <button type="submit" class="popup__button">Да</button>
+            <button  class="popup__button">Да</button>
         </div>
     </div>
     <template id="template-place-card">

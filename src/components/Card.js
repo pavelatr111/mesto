@@ -1,4 +1,6 @@
-import { data } from "autoprefixer";
+import Popup from "./Popup.js";
+
+
 
 export class Card {
   /* data = {
@@ -15,11 +17,12 @@ export class Card {
       },
       _id: "61a91af4ed37330012afbb6d"
     } */
-  constructor({data}, selector, openPopupImage, likeActive) {
+  constructor(data, selector, openPopupImage, likeActive, handleOpenPopupDel) {
     console.log(data)
     
     this._openPopupImage = openPopupImage;
     this._likeActive = likeActive
+    this._handleOpenPopupDel = handleOpenPopupDel
     
     this._selector = selector;
     this._id = data._id;
@@ -27,6 +30,8 @@ export class Card {
     this._name = data.name;
     this._link = data.link;
     this._meId = data.currentUserId;
+    this._ownerId = data.owner._id
+  
   }
   render() {
     const htmlElement = document
@@ -37,34 +42,37 @@ export class Card {
     htmlElement.querySelector('.element__text').innerText = this._name;
     htmlElement.querySelector('.element__img').src = this._link;
     htmlElement.querySelector('.element__img').alt = this._name;
-    htmlElement.querySelector('.element__like-number').innerText = this._likes.length;
+
+    this._elementTrash = htmlElement.querySelector('.element__trash');
+
+    if(this._meId !== this._ownerId) {
+      this._elementTrash.remove();
+    } 
+
     // 3. append to list
     this._setEventListeners(htmlElement);
     this._htmlElement = htmlElement.firstElementChild;
+    this.setLikes(this._likes);
 
     return htmlElement;
   }
+
+  
 
   _setEventListeners(element) {
     this._elementLikeButton = element.querySelector('.element__like');
     this._elementLikeButton.addEventListener('click', () => {this._likeActive(this);});
 
-    element.querySelector('.element__trash').addEventListener('click', this._handleDeleteCard);
+    this._elementTrash.addEventListener('click', () => {this._handleOpenPopupDel(this)});
 
     element.querySelector('.element__img').addEventListener('click', () => {
       this._openPopupImage(this._name, this._link);
     });
   }
-  //удаление карточки
-  _handleDeleteCard(evt) {
-    //попап удаления
-    // const popupDeleteCard = new Popup(".popup_delete")
-    // popupDeleteCard.setEventListeners();
-    // popupDeleteCard.open();
 
-    const deleteElement = evt.target;
-    deleteElement.closest('.element').remove();
-  }
+
+
+
 
   _updateLikes() {
     if(!this._likes.some(data => data._id === this._meId)){
@@ -89,6 +97,10 @@ export class Card {
       this._updateLikes();
   }
    
+
+  remove() {
+    this._htmlElement.remove();
+  }
   //добавление лайка
   // Active(evt) {
   //   const likeElement = evt.target;

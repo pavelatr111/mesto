@@ -37,6 +37,25 @@ export default class Api {
       .then(response)
     }
 
+    avatarEdit(avatar) {
+      return fetch(`${this._url}/users/me/avatar`, {
+        method: 'PATCH',
+        headers: {
+          ...this._headers,
+          'Content-Type': 'application/json'
+      },
+        body: JSON.stringify({
+          avatar
+        })
+      })
+      .then(response)
+    }
+    
+
+
+
+
+
     renderNewCard(name, link) {
       return fetch(`${this._url}/cards`, {
         method: 'POST',
@@ -52,31 +71,28 @@ export default class Api {
       .then(response)
     }
 
-    avatarEdit (avatar) {
-      return fetch (`${this._url}/users/me/avatar`, {
-        method: 'PATCH',
-        headers: this._headers,
-        body: JSON.stringify({
-          avatar
-        })
-      })
-      .then(response)
-    }
-
     likeActive(cardId) {
       return fetch(`${this._url}/cards/${cardId}/likes`, {
         method: 'PUT',
         headers: this._headers
       })
-      .then(response);
+      .then(response)
     }
-  
+
     likeDelete(cardId) {
       return fetch(`${this._url}/cards/${cardId}/likes`, {
         method: 'DELETE',
         headers: this._headers
       })
-        .then(response);
+      .then(response)
+    }
+    
+    cardDelete(cardId) {
+      return fetch(`${this._url}/cards/${cardId}`, {
+        method: 'DELETE',
+        headers: this._headers
+      })
+      .then(response)
     }
 
 }

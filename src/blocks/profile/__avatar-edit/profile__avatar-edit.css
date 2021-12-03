@@ -16,3 +16,16 @@
     left: calc(50% - 13px);
     display: none;
 }
+@media screen and (max-width: 768px) {
+    .profile__avatar-edit {
+        top: calc(50% - 25px);
+        left: calc(50% - 25px);     
+    }
+}
+@media screen and (max-width: 320px) {
+    .profile__avatar-edit {
+        top: calc(50% - 13px);
+        left: calc(50% - 13px);
+    }
+    
+}
