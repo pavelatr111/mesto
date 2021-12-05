@@ -18,8 +18,6 @@ export class Card {
       _id: "61a91af4ed37330012afbb6d"
     } */
   constructor(data, selector, openPopupImage, likeActive, handleOpenPopupDel) {
-    console.log(data)
-    
     this._openPopupImage = openPopupImage;
     this._likeActive = likeActive
     this._handleOpenPopupDel = handleOpenPopupDel
