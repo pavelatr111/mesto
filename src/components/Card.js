@@ -5,7 +5,7 @@ import Popup from "./Popup.js";
 export class Card {
   /* data = {
       createdAt: "2021-12-02T19:13:56.623Z"
-      likes: [] 
+      likes: []
       link: "https://photocentra.ru/images/main57/576214_main.jpg"
       name: "Карелия зимой"
       owner: {
@@ -21,7 +21,7 @@ export class Card {
     this._openPopupImage = openPopupImage;
     this._likeActive = likeActive
     this._handleOpenPopupDel = handleOpenPopupDel
-    
+
     this._selector = selector;
     this._id = data._id;
     this._likes = data.likes;
@@ -29,7 +29,7 @@ export class Card {
     this._link = data.link;
     this._meId = data.currentUserId;
     this._ownerId = data.owner._id
-  
+
   }
   render() {
     const htmlElement = document
@@ -45,7 +45,7 @@ export class Card {
 
     if(this._meId !== this._ownerId) {
       this._elementTrash.remove();
-    } 
+    }
 
     // 3. append to list
     this._setEventListeners(htmlElement);
@@ -55,7 +55,7 @@ export class Card {
     return htmlElement;
   }
 
-  
+
 
   _setEventListeners(element) {
     this._elementLikeButton = element.querySelector('.element__like');
@@ -66,18 +66,6 @@ export class Card {
     element.querySelector('.element__img').addEventListener('click', () => {
       this._openPopupImage(this._name, this._link);
     });
-  }
-
-
-
-
-
-  _updateLikes() {
-    if(!this._likes.some(data => data._id === this._meId)){
-      this._elementLikeButton.classList.remove('element__like_active');
-    }else {
-      this._elementLikeButton.classList.add('element__like_active')
-    }
   }
 
   getId() {
@@ -94,7 +82,15 @@ export class Card {
       this._likes.length;
       this._updateLikes();
   }
-   
+
+  _updateLikes() {
+    if(!this._likes.some(data => data._id === this._meId)){
+      this._elementLikeButton.classList.remove('element__like_active');
+    }else {
+      this._elementLikeButton.classList.add('element__like_active')
+    }
+  }
+
 
   remove() {
     this._htmlElement.remove();

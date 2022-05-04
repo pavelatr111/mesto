@@ -33,14 +33,14 @@ let currentUserId = null;
 //   })
 //   .catch(err => console.log(err))
 
-//   api
-//   .getCards()
-//   .then((data) =>
-//     data.reverse().forEach(function (dataCard) {
-//       addCard(renderPlaceCard(dataCard));
-//     })
-//   )
-//   .catch((err) => console.log(err));
+  // api
+  // .getCards()
+  // .then((cards) =>
+  //   cards.forEach(function (Card) {
+  //     addCard(renderPlaceCard(Card));
+  //   })
+  // )
+  // .catch((err) => console.log(err));
 
 Promise.all([api.getCards(), api.getUserInfo()])
   .then(([dataCards, dataUser]) => {

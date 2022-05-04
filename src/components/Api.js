@@ -4,6 +4,7 @@ function response(res){
 
 export default class Api {
     constructor({url, headers}) {
+
         this._url = url;
         this._headers = headers;
     }
@@ -19,7 +20,7 @@ export default class Api {
         return fetch(`${this._url}/users/me`, {
                 headers: this._headers,
             })
-          
+
             .then(response)
     }
 
@@ -52,7 +53,7 @@ export default class Api {
       })
       .then(response)
     }
-    
+
 
 
 
@@ -88,7 +89,7 @@ export default class Api {
       })
       .then(response)
     }
-    
+
     cardDelete(cardId) {
       return fetch(`${this._url}/cards/${cardId}`, {
         method: 'DELETE',
